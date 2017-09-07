@@ -43,8 +43,42 @@ public class Calculate {
 		int newNumerator = numerator%denominator;
 		return (wholeNum + "_" + newNumerator +"/"+ denominator);
 	}
-	
-	public static String foil(int num1, int num2, int num3, int num4, String letter) {
-		return (num1*num3) + letter + "^2+" + (num2*num3+num1*num4) + letter + "+" + (num2*num4);
+	//foils form (ax + b)(cx+d) into standard form
+	public static String foil(int a, int b, int c, int d, String letter) {
+		return (a*c) + letter + "^2+" + (b*c+a*d) + letter + "+" + (b*d);
 	}
+	//figure if num1 is divisible by num2
+	public static boolean isDivisibleBy(int num1,int num2) {
+		if(num1%num2==0) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	//returns absolute value of input
+	public static double absValue(double number) {
+		if(number<0) {
+			return number*-1;
+		}else {
+			return number;
+		}
+	}
+	//returns greater number
+	public static double max(double num1, double num2) {
+		if(num1>num2) {
+			return num1;
+		}else {
+			return num2;
+		}
+	}
+	//
+		public static double max(double num1, double num2, double num3) {
+			if(num1>num2 & num1>num3) {
+				return num1;
+			}else if(num2>num1 & num2>num3){
+				return num2;
+			}else {
+				return num3;
+			}
+		}
 }
