@@ -63,22 +63,43 @@ public class Calculate {
 			return number;
 		}
 	}
-	//returns greater number
+	//returns greater number out of 2 numbers
 	public static double max(double num1, double num2) {
 		if(num1>num2) {
 			return num1;
-		}else {
+		}else{
 			return num2;
 		}
 	}
-	//
-		public static double max(double num1, double num2, double num3) {
-			if(num1>num2 & num1>num3) {
-				return num1;
-			}else if(num2>num1 & num2>num3){
-				return num2;
-			}else {
-				return num3;
-			}
+	//returns greatest number out of 3 numbers
+	public static double max(double num1, double num2, double num3) {
+		if(num1>num2 && num1>num3) {
+			return num1;
+		}else if(num2>num1 && num2>num3){
+			return num2;
+		}else{
+			return num3;
 		}
+	}
+    //returns smaller number of two integers
+	public static int min(int num1, int num2) {
+		if(num1<num2) {
+			return num1;
+		}else{
+			return num2;
+		}
+	}
+	//rounds number to 2 decimal places	
+	public static double round2(double number) {
+		double difference = number % .01;
+		double roundedNum = number - difference;
+		if(difference <= .0049) {
+			return roundedNum;
+		}else {
+			return roundedNum + .01;
+		}
+		
+	}
+		
+		
 }
