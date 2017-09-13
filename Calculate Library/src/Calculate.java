@@ -98,8 +98,33 @@ public class Calculate {
 		}else {
 			return roundedNum + .01;
 		}
+	}
+	// returns exponential result of number	
+	public static double exponent(double number, int exponent) {
+		double base = number;
+		for(int i = 1; i < exponent; i++) {
+			number = base * number;
+		}
+		return number;
+	}	
+	//return factorial of a number
+	public static int factorial(int number) {
+		for(int i = number - 1; i > 0; i--) {
+			number *= i;
+		}
+		return number;
+	}
+	//returns boolean value for whether a number is a prime number
+	public static boolean isPrime(int number) {
+		boolean divisibleByBoolean = isDivisibleBy(number, 2);
+		if(divisibleByBoolean == true) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	public static int gcf(int num1, int num2) {
 		
 	}
-		
-		
 }
