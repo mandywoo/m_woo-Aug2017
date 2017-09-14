@@ -123,8 +123,24 @@ public class Calculate {
 			return true;
 		}
 	}
-	
+	//returns greatest common factor of two integers
 	public static int gcf(int num1, int num2) {
-		
+		while(num2 != 0){
+        int num1alt = num1;
+	        num1 = num2;
+	        num2 = num1alt % num2;            
+	    }
+	    return num1;
+	}
+	
+	public static double sqrt(double n) {
+		for(double a = 0; a < n; a +=.001){
+			double sqrt = (n/a + a)/2;
+			if(sqrt*2-a < .005){
+				double roundedSqrt = round2(sqrt);
+				return roundedSqrt;
+			}
+		}
+
 	}
 }
