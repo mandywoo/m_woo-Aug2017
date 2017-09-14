@@ -92,7 +92,9 @@ public class Calculate {
 	//rounds number to 2 decimal places	
 	public static double round2(double number) {
 		double difference = number % .01;
+		System.out.println(difference);
 		double roundedNum = number - difference;
+		System.out.println(roundedNum);
 		if(difference <= .0049) {
 			return roundedNum;
 		}else {
@@ -134,13 +136,12 @@ public class Calculate {
 	}
 	
 	public static double sqrt(double n) {
-		for(double a = 0; a < n; a +=.001){
-			double sqrt = (n/a + a)/2;
-			if(sqrt*2-a < .005){
-				double roundedSqrt = round2(sqrt);
-				return roundedSqrt;
-			}
+		double x = 1;
+		double y = 1;
+		while(absValue(n - (x * x)) > .005) {
+			y = x;
+			x = (n/y + y)/2;
 		}
-
+		return round2(x);
 	}
 }
