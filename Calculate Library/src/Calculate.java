@@ -90,16 +90,19 @@ public class Calculate {
 		}
 	}
 	//rounds number to 2 decimal places	
-	public static double round2(double number) {
-		double difference = number % .01;
-		System.out.println(difference);
-		double roundedNum = number - difference;
-		System.out.println(roundedNum);
-		if(difference <= .0049) {
-			return roundedNum;
+	public static double round2(double orig) {
+		double result = 0.0;
+		int tempInt = (int)(orig * 1000);
+		int roundNum = tempInt % 10;
+		tempInt = tempInt / 10;
+		if(roundNum >= 5 && tempInt > 0) {
+			tempInt++;
 		}else {
-			return roundedNum + .01;
+			tempInt--;
 		}
+		result = tempInt / 100.0;
+		return result;
+		
 	}
 	// returns exponential result of number	
 	public static double exponent(double number, int exponent) {
@@ -134,7 +137,7 @@ public class Calculate {
 	    }
 	    return num1;
 	}
-	
+	//approximate square root root of double
 	public static double sqrt(double n) {
 		double x = 1;
 		double y = 1;
