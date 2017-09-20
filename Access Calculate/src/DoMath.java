@@ -12,7 +12,7 @@ public class DoMath {
 		System.out.println(Calculate.toDegrees(3.14159/2));
 		System.out.println(Calculate.toRadians(180));
 		System.out.println(Calculate.discriminant(1,1,1));
-		System.out.println(Calculate.toImproperFrac(3,1,2));
+		System.out.println(Calculate.toImproperFrac(-3,1,2));
 		System.out.println(Calculate.toMixedNum(7,2));
 		System.out.println(Calculate.foil(2,3,6,-7,"n"));
 		System.out.println(Calculate.isDivisibleBy(-14,7));
