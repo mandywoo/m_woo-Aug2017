@@ -49,6 +49,7 @@ public class Calculate {
 	}
 	//figure if num1 is divisible by num2
 	public static boolean isDivisibleBy(int num1,int num2) {
+		if(num2==0) throw new IllegalArgumentException("It cannot except a zero");
 		if(num1%num2==0) {
 			return true;
 		}else{
@@ -106,6 +107,7 @@ public class Calculate {
 	}
 	// returns exponential result of number	
 	public static double exponent(double number, int exponent) {
+		if(exponent<0) throw new IllegalArgumentException("It cannot except a negative number");
 		double base = number;
 		for(int i = 1; i < exponent; i++) {
 			number = base * number;
@@ -114,6 +116,7 @@ public class Calculate {
 	}	
 	//return factorial of a number
 	public static int factorial(int number) {
+		if(number<0) throw new IllegalArgumentException("It cannot except a negative number");
 		for(int i = number - 1; i > 0; i--) {
 			number *= i;
 		}
@@ -139,6 +142,7 @@ public class Calculate {
 	}
 	//approximate square root root of double
 	public static double sqrt(double n) {
+		if(n<0) throw new IllegalArgumentException("It cannot except a negative number");
 		double x = 1;
 		double y = 1;
 		while(absValue(n - (x * x)) > .005) {
@@ -147,4 +151,21 @@ public class Calculate {
 		}
 		return round2(x);
 	}
+	
+	public static String quadForm(int a, int b, int c) {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
