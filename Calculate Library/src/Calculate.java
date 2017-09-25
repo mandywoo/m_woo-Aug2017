@@ -153,7 +153,23 @@ public class Calculate {
 	}
 	
 	public static String quadForm(int a, int b, int c) {
+		//double a,b,c
+		double a1 = (double)a1;
+		double b1 = (double)b1;
+		double c1 = (double)c1;
+		if(discriminant(a1, b1, c1)<0){
+			return "no real roots";
+		}
 		
+		double root1 = (-b1 + sqrt(discriminant(a1,b1,c1))/(2*a1));
+		double root2 = (-b1 - sqrt(discriminant(a1,b1,c1))/(2*a1));
+		root1 = round2(root1);
+		root2 = round2(root2);
+		double firstRoot = max(root1, root2);
+		String secondRoot = "" + (root1+root2-firstRoot);
+		String firstRoot1 = "" + firstRoot1;
+		return firstRoot1 + “ and ” + secondRoot;
+
 	}
 	
 	
