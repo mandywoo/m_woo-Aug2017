@@ -21,11 +21,12 @@ public class DoMath {
 		System.out.println(Calculate.max(-214,5,100));
 		System.out.println(Calculate.min(5,100));
 		System.out.println(Calculate.round2(-2.1237548359843972874));
-		System.out.println(Calculate.exponent(2,0));
+		System.out.println(Calculate.exponent(2,3));
 		System.out.println(Calculate.factorial(1));
 		System.out.println(Calculate.isPrime(3));
 		System.out.println(Calculate.gcf(10, 25));
 		System.out.println(Calculate.sqrt(8));
+		System.out.println(Calculate.quadForm(1,5,3));
 		
 	}
 }

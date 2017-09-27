@@ -93,14 +93,19 @@ public class Calculate {
 	//rounds number to 2 decimal places	
 	public static double round2(double orig) {
 		double result = 0.0;
+		//shift decimal point 3 places and cut off remaining
 		int tempInt = (int)(orig * 1000);
+		//get 1's digit
 		int roundNum = tempInt % 10;
+		//discard the 1's place
 		tempInt = tempInt / 10;
+		//round up or down
 		if(roundNum >= 5 && tempInt > 0) {
 			tempInt++;
 		}else {
 			tempInt--;
 		}
+		//move decimal place 2 and make it a double
 		result = tempInt / 100.0;
 		return result;
 		
@@ -108,7 +113,9 @@ public class Calculate {
 	// returns exponential result of number	
 	public static double exponent(double number, int exponent) {
 		if(exponent<0) throw new IllegalArgumentException("It cannot except a negative number");
+		//store number in base
 		double base = number;
+		//multiplies the base by number for as many times as the exponent
 		for(int i = 1; i < exponent; i++) {
 			number = base * number;
 		}
@@ -117,13 +124,16 @@ public class Calculate {
 	//return factorial of a number
 	public static int factorial(int number) {
 		if(number<0) throw new IllegalArgumentException("It cannot except a negative number");
+		//for loop is decreasing number by one 
 		for(int i = number - 1; i > 0; i--) {
+			//multiplying number by decreasing number
 			number *= i;
 		}
 		return number;
 	}
 	//returns boolean value for whether a number is a prime number
 	public static boolean isPrime(int number) {
+		//true/false value for isDivisibleBy
 		boolean divisibleByBoolean = isDivisibleBy(number, 2);
 		if(divisibleByBoolean == true) {
 			return false;
@@ -134,9 +144,12 @@ public class Calculate {
 	//returns greatest common factor of two integers
 	public static int gcf(int num1, int num2) {
 		while(num2 != 0){
-        int num1alt = num1;
+			int num1alt = num1;
+			System.out.println(num1alt);
 	        num1 = num2;
-	        num2 = num1alt % num2;            
+	        System.out.println(num1);
+	        num2 = num1alt % num2;    
+	        System.out.println(num2);
 	    }
 	    return num1;
 	}
@@ -151,30 +164,28 @@ public class Calculate {
 		}
 		return round2(x);
 	}
-	
+	//Finds root of a quadratic equation with the quadratic formula
 	public static String quadForm(int a, int b, int c) {
 		//double a,b,c
-		double a1 = (double)a1;
-		double b1 = (double)b1;
-		double c1 = (double)c1;
+		double a1 = (double)a;
+		double b1 = (double)b;
+		double c1 = (double)c;
+		//finds that if the discriminant is a negative number, there are no real roots
 		if(discriminant(a1, b1, c1)<0){
 			return "no real roots";
 		}
-		
+		//find roots
 		double root1 = (-b1 + sqrt(discriminant(a1,b1,c1))/(2*a1));
 		double root2 = (-b1 - sqrt(discriminant(a1,b1,c1))/(2*a1));
 		root1 = round2(root1);
 		root2 = round2(root2);
+		//find greater and lesser root of the two
 		double firstRoot = max(root1, root2);
-		String secondRoot = "" + (root1+root2-firstRoot);
-		String firstRoot1 = "" + firstRoot1;
-		return firstRoot1 + “ and ” + secondRoot;
+		String secondRoot = "" + (root1+root2-firstRoot);  
+		String firstRoot1 = "" + firstRoot;
+		return firstRoot1 + " and " + secondRoot;
 
-	}
-	
-	
-	
-	
+	}	
 	
 	
 	
