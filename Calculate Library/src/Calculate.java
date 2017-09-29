@@ -4,50 +4,50 @@
  * it contains a series of methods to do basic math functions
  */
 public class Calculate {
-	//square the input
+	//square the int input and returns int output
 	public static int square(int operand) {
 		return operand*operand;
 	}
-	//cube the input
+	//cube the int input and return int output
 	public static int cube(int number) {
 		return number*number*number;
 	}
-	//average of two double inputs
+	//average of two double inputs and returns a double output
 	public static double average(double number1, double number2) {
 		return (number1+number2)/2;
 	}
-	//average of three double inputs
+	//average of three double inputs and returns a double output
 	public static double average(double number1, double number2, double number3) {
 		return (number1+number2+number3)/3;
 	}
-	//converts angle measurement to degrees
+	//converts double angle measurement to degrees and returns double
 	public static double toDegrees(double angleMeasure) {
 		return (angleMeasure*180)/3.14159;
 	}
-	//converts degree measurements to radians
+	//converts degree measurements to radians and returns double
 	public static double toRadians(double degreeMeasure) {
 		return (degreeMeasure*3.14159)/180;
 	}
-	//finds discriminant of coefficients in a quadratic equation
+	//finds discriminant of double coefficients in a quadratic equation and returns double output
 	public static double discriminant(double a, double b, double c) {
 		return b*b-4*a*c;
 	}
-	//convert mixed number to improper fraction
+	//convert mixed number to improper fraction, input int and return String
 	public static String toImproperFrac(int wholeNum, int numerator, int denominator) {
 		int newNumerator = wholeNum*denominator+numerator;
 		return ( newNumerator + "/" + denominator);
 	}
-	//convert improper fraction to mixed number
+	//convert improper fraction to mixed number, input int and return String
 	public static String toMixedNum(int numerator, int denominator) {
 		int wholeNum = numerator/denominator;
 		int newNumerator = numerator%denominator;
 		return (wholeNum + "_" + newNumerator +"/"+ denominator);
 	}
-	//foils form (ax + b)(cx+d) into standard form
+	//foils form (ax + b)(cx+d) into String standard form
 	public static String foil(int a, int b, int c, int d, String letter) {
 		return (a*c) + letter + "^2+" + (b*c+a*d) + letter + "+" + (b*d);
 	}
-	//figure if num1 is divisible by num2
+	//figure if int num1 is divisible by int num2 and reurns boolean
 	public static boolean isDivisibleBy(int num1,int num2) {
 		if(num2==0) throw new IllegalArgumentException("It cannot except a zero");
 		if(num1%num2==0) {
@@ -56,7 +56,7 @@ public class Calculate {
 			return false;
 		}
 	}
-	//returns absolute value of input
+	//returns absolute value of double input
 	public static double absValue(double number) {
 		if(number<0) {
 			return number*-1;
@@ -64,7 +64,7 @@ public class Calculate {
 			return number;
 		}
 	}
-	//returns greater number out of 2 numbers
+	//returns greater number out of 2 double numbers 
 	public static double max(double num1, double num2) {
 		if(num1>num2) {
 			return num1;
@@ -72,7 +72,7 @@ public class Calculate {
 			return num2;
 		}
 	}
-	//returns greatest number out of 3 numbers
+	//returns greatest number out of 3 double numbers 
 	public static double max(double num1, double num2, double num3) {
 		if(num1>num2 && num1>num3) {
 			return num1;
@@ -90,7 +90,7 @@ public class Calculate {
 			return num2;
 		}
 	}
-	//rounds number to 2 decimal places	
+	//rounds double number to 2 decimal places and returns double number
 	public static double round2(double orig) {
 		double result = 0.0;
 		//shift decimal point 3 places and cut off remaining
@@ -121,7 +121,7 @@ public class Calculate {
 		}
 		return number;
 	}	
-	//return factorial of a number
+	//return int factorial of a int number
 	public static int factorial(int number) {
 		if(number<0) throw new IllegalArgumentException("It cannot except a negative number");
 		//for loop is decreasing number by one 
@@ -143,21 +143,25 @@ public class Calculate {
 	}
 	//returns greatest common factor of two integers
 	public static int gcf(int num1, int num2) {
+		//ex: 10,25
 		while(num2 != 0){
 			int num1alt = num1;
-			System.out.println(num1alt);
-	        num1 = num2;
-	        System.out.println(num1);
-	        num2 = num1alt % num2;    
-	        System.out.println(num2);
+	        //=10, 25, 10
+			num1 = num2;
+			//=25, 10, 5
+	        num2 = num1alt % num2; 
+	        //=10, 5, 0
 	    }
+		//num1= 5
 	    return num1;
+	   
 	}
 	//approximate square root root of double
 	public static double sqrt(double n) {
 		if(n<0) throw new IllegalArgumentException("It cannot except a negative number");
 		double x = 1;
 		double y = 1;
+		//newton formula
 		while(absValue(n - (x * x)) > .005) {
 			y = x;
 			x = (n/y + y)/2;
@@ -166,7 +170,7 @@ public class Calculate {
 	}
 	//Finds root of a quadratic equation with the quadratic formula
 	public static String quadForm(int a, int b, int c) {
-		//double a,b,c
+		//cast double a,b,c
 		double a1 = (double)a;
 		double b1 = (double)b;
 		double c1 = (double)c;
@@ -179,7 +183,7 @@ public class Calculate {
 		double root2 = (-b1 - sqrt(discriminant(a1,b1,c1))/(2*a1));
 		root1 = round2(root1);
 		root2 = round2(root2);
-		//find greater and lesser root of the two
+		//find greater and lesser root of the two and make String
 		double firstRoot = max(root1, root2);
 		String secondRoot = "" + (root1+root2-firstRoot);  
 		String firstRoot1 = "" + firstRoot;
