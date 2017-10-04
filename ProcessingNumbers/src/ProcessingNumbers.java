@@ -1,4 +1,6 @@
 //Mandy Woo
+//10/4
+//Collaborative Programming Exercise
 
 import java.util.Scanner;
 public class ProcessingNumbers {
