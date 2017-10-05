@@ -2,7 +2,7 @@
 //10/4
 //Collaborative Programming Exercise
 
-import java.util.Scanner;
+import java.util.*;
 public class ProcessingNumbers {
 
 	public static void main(String[] args) {
@@ -21,10 +21,10 @@ public class ProcessingNumbers {
 				min = num;
 				first = false;
 			}else {
-				if(max < num) {
+				if(num > max) {
 					max = num;
 				}
-				if(min > num) {
+				if(num < min) {
 					min = num;
 				}
 			}
