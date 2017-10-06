@@ -27,12 +27,11 @@
  */
 
 
-
 public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
 		//print standard form
 		System.out.println("Description of the graph of:");
-		String standardForm = a + "x^2+" + b + "x" + c;
+		String standardForm = a + "x^2 + " + b + "x + " + c;
 		System.out.println(standardForm);
 		
 		//check direction graph opens
@@ -44,17 +43,26 @@ public class Quadratic {
 		}
 			
 		//axis of symmetry
-			
+		double symmetry = -b/2*a;
+		String axisOfSym = "Axis of Symmetry: ";
+		axisOfSym += (-b/2*a);
+		
 		//vertex
-			
+		String vertex = "Vertex: ";
+		vertex += (a*square(symmetry) + b*symmetry + c);
+		
 		//x-intercepts
 		String xIntercept = "x-intercept(s): ";
-			xIntercept += quadForm(a, b, c);
+		xIntercept += quadForm(a, b, c);
 			
 		//y-intercepts
 		String yIntercept = "y-intercept: ";
-				
+		yIntercept += c;
 					
+		//Store in return String
+		String str = opens + "\n" + axisOfSym + "\n" + vertex + "\n" + xIntercept +
+				"\n" + yIntercept;
+		return str;
 	}
 		
 
@@ -65,7 +73,7 @@ public class Quadratic {
 	public static String quadForm(double a, double b, double c) {
 		//finds that if the discriminant is a negative number, there are no real roots
 		if(discriminant(a, b, c)<0){
-			return "no real roots";
+			return "none";
 		}
 		//find roots
 		double root1 = (-b + sqrt(discriminant(a,b,c))/(2*a));
@@ -122,5 +130,8 @@ public class Quadratic {
 		}else {
 			return number;
 		}
+	}
+	public static double square(double operand) {
+		return operand*operand;
 	}
 }
