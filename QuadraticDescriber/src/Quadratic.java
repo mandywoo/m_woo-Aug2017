@@ -2,7 +2,7 @@
  * 
  * Pseudocode
  * QuadraticClient:
- * Import Declaration before header
+ * Import Declaration before class header
  * Main Method
  * Do, while loop(not quit)
  * Initialize scanner
@@ -61,7 +61,7 @@ public class Quadratic {
 					
 		//Store in return String
 		String str = opens + "\n" + axisOfSym + "\n" + vertex + "\n" + xIntercept +
-				"\n" + yIntercept;
+				"\n" + yIntercept + "\n";
 		return str;
 	}
 		
