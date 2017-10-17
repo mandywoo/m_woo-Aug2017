@@ -44,8 +44,8 @@ public class Quadratic {
 			
 		//axis of symmetry
 		double symmetry = -b/2*a;
-		String axisOfSym = "Axis of Symmetry: ";
-		axisOfSym += (-b/2*a);
+		String axisOfSymm = "Axis of Symmetry: ";
+		axisOfSymm += (-b/2*a);
 		
 		//vertex
 		String vertex = "Vertex: ";
@@ -66,10 +66,6 @@ public class Quadratic {
 	}
 		
 
-
-	
-	
-	
 	public static String quadForm(double a, double b, double c) {
 		//finds that if the discriminant is a negative number, there are no real roots
 		if(discriminant(a, b, c)<0){
