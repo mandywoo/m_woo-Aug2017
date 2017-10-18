@@ -49,6 +49,7 @@ public class Quadratic {
 		
 		//vertex
 		String vertex = "Vertex: (" + symmetry + ", ";
+		//plug x value into equation to find y
 		vertex += (a*square(symmetry) + b*symmetry + c);
 		vertex += (")");
 		
@@ -61,17 +62,14 @@ public class Quadratic {
 		yIntercept += c;
 		
 					
-		//Store in return String
+		//Store info in return String
 		String str = opens + "\n" + axisOfSym + "\n" + vertex + "\n" + xIntercept +
 				"\n" + yIntercept + "\n";
 		return str;
 	}
 		
-
-
 	
-	
-	
+	//methods used above copied and adjusted from calculate
 	public static String quadForm(double a, double b, double c) {
 		//finds that if the discriminant is a negative number, there are no real roots
 		if(discriminant(a, b, c)<0){
