@@ -60,7 +60,7 @@ public class Quadratic {
 		yIntercept += c;
 					
 		//Store in return String
-		String str = opens + "\n" + axisOfSym + "\n" + vertex + "\n" + xIntercept +
+		String str = opens + "\n" + symmetry + "\n" + vertex + "\n" + xIntercept +
 				"\n" + yIntercept + "\n";
 		return str;
 	}

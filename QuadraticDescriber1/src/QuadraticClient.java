@@ -34,11 +34,11 @@ public class QuadraticClient {
 		boolean finished = false;
 		while (!finished) {
 			System.out.println("Provide values for coefficients a, b, and c.");
-			System.out.println("a: ");
+			System.out.print("a: ");
 			double a = userInput.nextDouble();
-			System.out.println("b: ");
+			System.out.print("b: ");
 			double b = userInput.nextDouble();
-			System.out.println("c: ");
+			System.out.print("c: ");
 			double c = userInput.nextDouble();
 			String quadInfo = Quadratic.quadrDescriber(a, b, c);
 			System.out.println(quadInfo);
