@@ -24,7 +24,7 @@ public static void main(String[] args) {
 	
 	filling("breadapplespineappleslettustomatobaconmayohamcheesebread");
 	filling("applespineappleslettustomatobaconmayohambreadbreadcheese");
-	filling2("apples pineapples bread lettus tomato bacon mayo bread ham cheese");
+	filling2("bread apples pineapples lettus tomato bacon mayo ham cheese bread");
 	}
 
 
@@ -42,21 +42,22 @@ public static void main(String[] args) {
 		String[] splitArr = everything.split("bread");
 		//array to string
 		String str = Arrays.toString(splitArr);
-		System.out.println(str);
 		//index of where bread was replaced
 		int breadInd = str.indexOf(", ");
 		int breadInd2 = str.indexOf(", ", str.indexOf(", ")+1);
-		System.out.println(breadInd2);
 		int breadInd3 = str.indexOf(", ", breadInd2 + 1);
-		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1 && (everything.indexOf("bread", everything.indexOf("bread")+1)==-1))||(breadInd+2==breadInd2)) {
+		
+		//check scenarios in which filling doesn't exist ie: 1 or 0 bread, and when bread is next to each other
+		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1 && !(everything.indexOf("bread", everything.indexOf("bread")+1)!=-1))||(breadInd+2==breadInd2)) {
 			System.out.println("There is no filling in "+everything);
 		}else {
-			if(breadInd3 != -1) {
+			//scenario when their is third bread
+			if(breadInd3 != -1 && breadInd2 != -1) {
 				System.out.println("The filling is "+str.substring(breadInd+2, breadInd2) +" and "+str.substring(breadInd2+2, breadInd3));
-			}else if(true) {
-				System.out.println(everything.indexOf("bread", everything.indexOf("bread")+1)+6);
-				System.out.println("The filling is "+str.substring(breadInd+2));
-				//System.out.println("The filling is "+str.substring(breadInd+2, breadInd2));
+			//scenario when 2nd bread is last
+			}else if((everything.indexOf("bread", everything.indexOf("bread")+1)!=-1)&&breadInd2==-1) {
+				System.out.println("The filling is "+str.substring(breadInd+2, str.length()-1));
+			//normal sandwich
 			}else {
 				System.out.println("The filling is "+str.substring(breadInd+2, breadInd2));
 			}
@@ -70,22 +71,28 @@ public static void main(String[] args) {
 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 */
 	
-//finds filling in String with spaces
-public static void filling2(String everything) {
-	String[] splitArr = everything.split(" ");
-	String str = Arrays.toString(splitArr);
-	int breadInd = str.indexOf("bread");
-	int breadInd2 = str.indexOf("bread", str.indexOf("bread")+1);
-	int breadInd3 = str.indexOf("bread", breadInd2 + 1);
-	if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1)||(breadInd+7==breadInd2)) {
-		System.out.println("There is no filling in "+everything);
-	}else {
-		if(breadInd3 != -1) {
-			System.out.println("The filling is "+str.substring(breadInd+7, breadInd2) +" and "+str.substring(breadInd2+7, breadInd3-2));
+	//finds filling in String with spaces
+	public static void filling2(String everything) {
+		//split everything at spaces
+		String[] splitArr = everything.split(" ");
+		//array to string
+		String str = Arrays.toString(splitArr);
+		//index of bread
+		int breadInd = str.indexOf("bread");
+		int breadInd2 = str.indexOf("bread", str.indexOf("bread")+1);
+		int breadInd3 = str.indexOf("bread", breadInd2 + 1);
+		//scenarios when there is 1 or 0 bread or when bread and bread are next to each other
+		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1)||(breadInd+7==breadInd2)) {
+			System.out.println("There is no filling in "+everything);
 		}else {
-			System.out.println("The filling is "+str.substring(breadInd+7, breadInd2-2));
+			//scenario when there is third bread
+			if(breadInd3 != -1) {
+				System.out.println("The filling is "+str.substring(breadInd+7, breadInd2) +" and "+str.substring(breadInd2+7, breadInd3-2));
+			//normal sandwich
+			}else {
+				System.out.println("The filling is "+str.substring(breadInd+7, breadInd2-2));
+			}
 		}
 	}
-}
 
 }
