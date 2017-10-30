@@ -45,42 +45,42 @@ public class Quadratic {
 		//axis of symmetry
 		double symmetry = -b/2*a;
 		String axisOfSym = "Axis of Symmetry: ";
-		axisOfSym += (-b/2*a);
+		axisOfSym += symmetry;
 		
 		//vertex
 		String vertex = "Vertex: (" + symmetry + ", ";
+		//plug x value into equation to find y
 		vertex += (a*square(symmetry) + b*symmetry + c);
 		vertex += (")");
 		
 		//x-intercepts
 		String xIntercept = "x-intercept(s): ";
 		xIntercept += quadForm(a, b, c);
-			
+		
 		//y-intercepts
 		String yIntercept = "y-intercept: ";
 		yIntercept += c;
+		
 					
-		//Store in return String
+		//Store info in return String
 		String str = opens + "\n" + axisOfSym + "\n" + vertex + "\n" + xIntercept +
 				"\n" + yIntercept + "\n";
 		return str;
 	}
 		
-
-
 	
-	
-	
+	//methods used above copied and adjusted from calculate
 	public static String quadForm(double a, double b, double c) {
 		//finds that if the discriminant is a negative number, there are no real roots
 		if(discriminant(a, b, c)<0){
 			return "none";
 		}
 		//find roots
-		double root1 = (-b + sqrt(discriminant(a,b,c))/(2*a));
-		double root2 = (-b - sqrt(discriminant(a,b,c))/(2*a));
+		double root1 = ((-b + sqrt(discriminant(a,b,c)))/(2*a));
+		double root2 = ((-b - sqrt(discriminant(a,b,c)))/(2*a));
 		root1 = round2(root1);
 		root2 = round2(root2);
+
 		//find greater and lesser root of the two
 		double firstRoot = max(root1, root2);
 		String secondRoot = "" + (root1+root2-firstRoot);  
@@ -111,7 +111,7 @@ public class Quadratic {
 		//round up or down
 		if(roundNum >= 5 && tempInt > 0) {
 			tempInt++;
-		}else {
+		}else if(roundNum <= -5 && tempInt < 0){
 			tempInt--;
 		}
 		//move decimal place 2 and make it a double
