@@ -24,9 +24,9 @@ public static void main(String[] args) {
 	System.out.println(Arrays.toString("really I like apples!".split("really")));
 	System.out.println(Arrays.toString("I like apples! really".split("really")));
 	
-	filling("breadapplespineappleslettustomatobaconmayohamcheesebread");
-	filling("applespineappleslettustomatobaconmayohambreadbreadcheese");
-	filling2("bread apples pineapples lettus tomato bacon mayo ham cheese bread");
+	//filling("breadbreadapplespineappleslettustomatobaconmayohamcheese");
+	//filling("applespineappleslettustomatobaconmayohambreadbreadcheese");
+	filling2("bread breadapples pineapples lettus tomato bacon mayo ham cheese ");
 	}
 
 
@@ -49,8 +49,8 @@ public static void main(String[] args) {
 		int breadInd2 = splitStr.indexOf(", ", splitStr.indexOf(", ")+1);
 		int breadInd3 = splitStr.indexOf(", ", breadInd2 + 1);
 		
-		//check scenarios in which filling doesn't exist ie: 1 or 0 bread, and when bread is next to each other
-		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1 && !(everything.indexOf("bread", everything.indexOf("bread")+1)!=-1))||(breadInd+2==breadInd2)) {
+		//check scenarios in which filling doesn't exist ie: 1 or 0 bread, and when bread is next to each other -----> return empty string
+		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1 && !(everything.indexOf("bread", everything.indexOf("bread")+1)!=-1))) { //||(breadInd+2==breadInd2)) {
 			System.out.println("There is no filling in "+everything);
 		}else {
 			//scenario when their is third bread
