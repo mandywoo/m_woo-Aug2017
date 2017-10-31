@@ -60,6 +60,8 @@ public static void main(String[] args) {
 			}else if((everything.indexOf("bread", everything.indexOf("bread")+1)!=-1)&&breadInd2==-1) {
 				System.out.println("The filling is "+splitStr.substring(breadInd+2, splitStr.length()-1));
 			//normal sandwich
+			}else if(breadInd+2==breadInd2) {
+				System.out.println("There is nothing between the two slices of bread.");
 			}else {
 				System.out.println("The filling is "+splitStr.substring(breadInd+2, breadInd2));
 			}
@@ -84,13 +86,15 @@ public static void main(String[] args) {
 		int breadInd2 = splitStr.indexOf("bread", splitStr.indexOf("bread")+1);
 		int breadInd3 = splitStr.indexOf("bread", breadInd2 + 1);
 		//scenarios when there is 1 or 0 bread or when bread and bread are next to each other
-		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1)||(breadInd+7==breadInd2)) {
+		if((breadInd == -1 && breadInd2 == -1)||(breadInd2==-1)) {//||(breadInd+7==breadInd2)) {
 			System.out.println("There is no filling in "+everything);
 		}else {
 			//scenario when there is third bread
 			if(breadInd3 != -1) {
 				System.out.println("The filling is "+splitStr.substring(breadInd+7, breadInd2) +" and "+splitStr.substring(breadInd2+7, breadInd3-2));
 			//normal sandwich
+			}else if(breadInd+7==breadInd2){
+				System.out.println("There is a space between the two slices of bread.");
 			}else {
 				System.out.println("The filling is "+splitStr.substring(breadInd+7, breadInd2-2));
 			}
