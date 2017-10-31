@@ -45,7 +45,7 @@ public class Calculate {
 	}
 	//foils form (ax + b)(cx+d) into String standard form
 	public static String foil(int a, int b, int c, int d, String letter) {
-		return (a*c) + letter + "^2+" + (b*c+a*d) + letter + "+" + (b*d);
+		return (a*c) + letter + "^2 + " + (b*c+a*d) + letter + " + " + (b*d);
 	}
 	//figure if int num1 is divisible by int num2 and reurns boolean
 	public static boolean isDivisibleBy(int num1,int num2) {
@@ -102,11 +102,12 @@ public class Calculate {
 		//round up or down
 		if(roundNum >= 5 && tempInt > 0) {
 			tempInt++;
-		}else {
+		}else if(roundNum <= -5 && tempInt < 0){
 			tempInt--;
 		}
 		//move decimal place 2 and make it a double
 		result = tempInt / 100.0;
+		
 		return result;
 		
 	}
@@ -179,8 +180,8 @@ public class Calculate {
 			return "no real roots";
 		}
 		//find roots
-		double root1 = (-b1 + sqrt(discriminant(a1,b1,c1))/(2*a1));
-		double root2 = (-b1 - sqrt(discriminant(a1,b1,c1))/(2*a1));
+		double root1 = ((-b1 + sqrt(discriminant(a1,b1,c1)))/(2*a1));
+		double root2 = ((-b1 - sqrt(discriminant(a1,b1,c1)))/(2*a1));
 		root1 = round2(root1);
 		root2 = round2(root2);
 		//find greater and lesser root of the two and make String
@@ -188,15 +189,5 @@ public class Calculate {
 		String secondRoot = "" + (root1+root2-firstRoot);  
 		String firstRoot1 = "" + firstRoot;
 		return firstRoot1 + " and " + secondRoot;
-
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
