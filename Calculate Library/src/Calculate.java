@@ -106,6 +106,7 @@ public class Calculate {
 			tempInt--;
 		}
 		//move decimal place 2 and make it a double
+		System.out.println(tempInt);
 		result = tempInt / 100.0;
 		
 		return result;
