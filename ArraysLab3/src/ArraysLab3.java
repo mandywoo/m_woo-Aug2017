@@ -27,6 +27,9 @@ public class ArraysLab3 {
 	}
 	
 	public static int[] sum(int[] arr1, int[] arr2) {
+		assert (arr1.length > 0);
+		assert (arr2.length > 0);
+		assert (arr1.length == arr2.length);
 		int[] returnArr = new int[arr1.length];
 		//add arr1 and arr2 elements to returnArr
 		for(int i = 0; i < arr1.length; i++) {
@@ -37,6 +40,7 @@ public class ArraysLab3 {
 	}
 
 	public static int[] append(int[] arr, int num){
+		assert (arr.length > 0);
 		int[] returnArr = new int[arr.length+1];
 		//adds elements in arr to returnArr
 		for(int i = 0; i < arr.length; i++) {
@@ -48,6 +52,7 @@ public class ArraysLab3 {
 	}
 	
 	public static int[] remove(int[] arr, int idx) {
+		assert (arr.length >= 2);
 		int[] returnArr = new int[arr.length-1];
 		boolean removeIdx = false;
 		//add every element in arr to returnArr except for the element of idx
@@ -67,6 +72,7 @@ public class ArraysLab3 {
 	}
 	
 	public static int sumEven(int[] arr) {
+		assert (arr.length > 0);
 		int returnInt = 0;
 		//goes through every even index and adds element to returnInt sum
 		for(int i = 0; i < arr.length; i+=2) {
@@ -76,6 +82,7 @@ public class ArraysLab3 {
 	}
 	
 	public static void rotateRight(int[] arr) {
+		assert (arr.length > 0); 
 		//store last element so the data isn't lost
 		int lastElem = arr[arr.length-1];
 		//move element to right one index
